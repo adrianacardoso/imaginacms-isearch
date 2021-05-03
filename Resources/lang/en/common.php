@@ -17,6 +17,7 @@ return [
     'table' => [
     ],
     'form' => [
+        'search_here' => 'Search Here',
     ],
     'messages' => [
     ],
