@@ -45,7 +45,7 @@ class PublicController extends BasePublicController
         $take=12;
         if(config('asgard.isearch.config.queries.iblog') && is_module_enabled('Iblog')){
             $posts=app('Modules\Iblog\Repositories\PostRepository');
-            $items=$posts->getItemsBy(json_decode(json_encode(['filter'=>['search'=>$searchphrase],'page'=>$request->page??1, 'take'=> $take, 'include'=>['user']])));
+            $items=$posts->getItemsBy(json_decode(json_encode(['filter'=>['search'=>$searchphrase, 'locale' => \App::getLocale()],'page'=>$request->page??1, 'take'=> $take, 'include'=>['user']])));
             $result['post']=["title"=>trans('iblog::post.title.posts'),'items'=>$items];
         }
 
