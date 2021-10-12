@@ -1,15 +1,16 @@
 
-#searchLayout1, #searchLayout2{
-  .cover-img{
+#searchLayout1, #searchLayout2 {
+  .cover-img {
     object-fit: cover;
     max-height: 70px;
   }
-  
-  .search-logo{
+
+  .search-logo {
     max-height: 100px;
     min-height: 100px;
-    width: auto!important;
+    width: auto !important;
   }
+
   @include media-breakpoint-down(md) {
     .search-logo {
       min-height: 40px;
@@ -23,14 +24,16 @@
     max-width: 100%;
     margin: 0;
   }
+
   .btn {
     color: #444444;
     font-size: 22px;
     padding: 0 15px;
     border-radius: 0 !important;
+
     &:focus {
-       box-shadow: none;
-     }
+      box-shadow: none;
+    }
   }
 
   .form-control {
@@ -38,13 +41,15 @@
     color: #444444;
     background-color: transparent;
     border-radius: 0;
-    &:focus{
+
+    &:focus {
       color: #444444;
       background-color: transparent;
       border-color: #444444;
       outline: 0;
       box-shadow: none;
     }
+
     &::placeholder {
       color: #555555;
     }
@@ -59,6 +64,7 @@
     font-size: 22px;
     padding: 0 15px 0 0;
     border-radius: 0 !important;
+
     &:focus {
       box-shadow: none;
     }
@@ -69,7 +75,8 @@
     color: #444444;
     background-color: transparent;
     border-radius: 0;
-    &:focus{
+
+    &:focus {
       color: #444444;
       background-color: transparent;
       border-color: #444444;
@@ -86,25 +93,69 @@
     color: #ffffff;
     background-color: transparent;
     border-radius: 0;
-    &:focus{
+
+    &:focus {
       color: #ffffff;
       background-color: transparent;
       border-color: #ffffff;
       outline: 0;
       box-shadow: none;
     }
+
     &::placeholder {
-       color: #ffffff;
-     }
+      color: #ffffff;
+    }
   }
+
   .btn {
     color: #ffffff;
     font-size: 22px;
     padding: 0 15px;
     border-radius: 0 !important;
+
     &:focus {
       box-shadow: none;
     }
   }
-  
+
+}
+
+//Index isearch
+#pageIsearch {
+  .page-header {
+    font-size: 2rem;
+    color: $primary;
+  }
+
+  .card {
+    max-width: 290px !important;
+
+    img {
+      height: 200px;
+    }
+
+    .card-body {
+      .card-title {
+        a {
+          text-decoration: none;
+
+          h2 {
+            font-size: 21px;
+          }
+        }
+      }
+
+      .card-text {
+        line-height: 1.3;
+        height: 100px;
+        background: #fff;
+        max-height: 5.3rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+      }
+    }
+  }
 }
