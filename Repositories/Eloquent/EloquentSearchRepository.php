@@ -24,15 +24,16 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
   {
     $results = Collect();
     $filter = $params->filter;
+
     if (isset($filter->repositories)) {
       !is_array($filter->repositories) ? $filter->repositories = [$filter->repositories] : false;
       foreach ($filter->repositories as $repository) {
         try {
           $repository = app($repository);
           $items = $repository->getItemsBy($params);
+          $results = $results->concat($items);
         } catch (\Exception $e) {
         }
-        $results = $results->concat($items);
       }
       return $results;
     }
