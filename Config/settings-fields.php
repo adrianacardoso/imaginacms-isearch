@@ -13,7 +13,7 @@ return [
     ],
   ],
   'repoSearch' => [
-    'value' => json_encode(['Modules\Iblog\Repositories\PostRepository','Modules\Iplaces\Repositories\PlaceRepository',
+    'value' => json_encode(['Modules\Iblog\Repositories\CategoryRepository','Modules\Iblog\Repositories\PostRepository','Modules\Iplaces\Repositories\PlaceRepository',
       'Modules\Iad\Repositories\AdRepository','Modules\Icommerce\Repositories\ProductRepository']),
     'name' => 'isearch::repoSearch',
     'type' => 'select',
@@ -23,9 +23,10 @@ return [
       'multiple' => true,
       'hideDropdownIcon' => true,
       'hint' => 'isearch::common.settingHints.search',
-       'options' => [
+      'options' => [
         ['label' => 'Productos', 'value' => "Modules\Icommerce\Repositories\ProductRepository"],
         ['label' => 'Entradas', 'value' => "Modules\Iblog\Repositories\PostRepository"],
+        ['label' => 'Categorias Blog', 'value' => "Modules\Iblog\Repositories\CategoryRepository"],
         ['label' => 'Anuncios', 'value' => "Modules\Iad\Repositories\AdRepository"],
         ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
       ]
