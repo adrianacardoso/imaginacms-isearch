@@ -33,6 +33,7 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
           $items = $repository->getItemsBy($params);
           $results = $results->concat($items);
         } catch (\Exception $e) {
+          \Log::info("Isearch::SearchRepository | getItemsBy error:".$e->getMessage());
         }
       }
       return $results;

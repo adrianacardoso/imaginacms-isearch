@@ -19,6 +19,8 @@
             :buttonSearch="true"
             :params="$params"
             :title="$title"
+            :minSearchChars="$minSearchChars"
+            :goToRouteAlias="$goToRouteAlias"
           />
         </div>
       </div>

@@ -11,7 +11,7 @@ return [
     'itourism' => false,
     'iperformer' => false
   ],
-  'route' => 'icommerce.store.index',
+  'route' => 'isearch.search',
 
   /*Layout Posts - Index */
   'layoutIndex' => [

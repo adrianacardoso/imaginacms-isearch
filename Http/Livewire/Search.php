@@ -22,13 +22,15 @@ class Search extends Component
   public $placeholder;
   public $title;
   public $minSearchChars;
+  public $goToRouteAlias;
 
   protected $queryString = [
     'search' => ['except' => ''],
   ];
 
 
-  public function mount($layout = 'search-layout-1', $showModal = false, $icon = 'fa fa-search', $placeholder = null, $title = '', $params = [])
+  public function mount($layout = 'search-layout-1', $showModal = false, $icon = 'fa fa-search', $placeholder = null,
+                        $title = '', $params = [], $minSearchChars = null, $goToRouteAlias = null)
   {
     $this->defaultView = 'isearch::frontend.livewire.search.layouts.search-layout-1.index';
     $this->view = isset($layout) ? 'isearch::frontend.livewire.search.layouts.' . $layout . '.index' : $this->defaultView;
@@ -37,8 +39,8 @@ class Search extends Component
     $this->icon = isset($icon) ? $icon : 'fa-search';
     $this->placeholder = $placeholder ?? trans('isearch::common.form.search_here');
     $this->title = $title;
-    $minSearchChars = setting('isearch::minSearchChars', null, "3");
-    $this->minSearchChars = $minSearchChars;
+    $this->minSearchChars = $minSearchChars ?? setting('isearch::minSearchChars', null, "3");
+    $this->goToRouteAlias = $goToRouteAlias ?? config('asgard.isearch.config.route', 'isearch.search');
     $repos = json_decode(setting('isearch::repoSearch'));
     $this->params['filter']['repositories'] = $this->params['filter']['repositories'] ?? $repos;
 
