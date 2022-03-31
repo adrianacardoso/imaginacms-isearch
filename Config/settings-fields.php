@@ -29,6 +29,7 @@ return [
         ['label' => 'Categorias Blog', 'value' => "Modules\Iblog\Repositories\CategoryRepository"],
         ['label' => 'Anuncios', 'value' => "Modules\Iad\Repositories\AdRepository"],
         ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
+        ['label' => 'Páginas', 'value' => "Modules\Page\Repositories\PageRepository"],
       ]
     ]
   ],
