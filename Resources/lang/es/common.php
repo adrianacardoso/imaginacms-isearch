@@ -27,12 +27,12 @@ return [
   'settings' => [
     'minSearchChars' => 'Mínimo de Caracteres para Búsqueda',
     'search' => 'Repositorios para buscar contenido',
+    'labelListOptionsSearch' => 'Sugerencias para busquedas (Solo Autocomplete Layout 2)',
+    'labelListFeaturedOptionsSearch' => 'Sugerencias destacadas para busquedas (Solo Autocomplete Layout 2)',
   ],
   'settingHints' => [
     'search' => "Ingresa un repositorio y presiona enter",
+    'hintsOptionsSearch' => 'Ingresa sugerencias de búsquedas',
+    'hintsFeaturedOptionsSearch' => 'Ingresa sugerencias destacadas de búsquedas',
   ],
-  'settingGroups' => [
-    'search' => 'Buscador',
-  ],
-
 ];
