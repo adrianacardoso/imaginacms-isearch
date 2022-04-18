@@ -13,11 +13,10 @@ return [
     ],
   ],
   'repoSearch' => [
-    'value' => json_encode(['Modules\Iblog\Repositories\CategoryRepository','Modules\Iblog\Repositories\PostRepository','Modules\Iplaces\Repositories\PlaceRepository',
-      'Modules\Iad\Repositories\AdRepository','Modules\Icommerce\Repositories\ProductRepository']),
+    'value' => json_encode(['Modules\Iblog\Repositories\CategoryRepository', 'Modules\Iblog\Repositories\PostRepository', 'Modules\Iplaces\Repositories\PlaceRepository',
+      'Modules\Iad\Repositories\AdRepository', 'Modules\Icommerce\Repositories\ProductRepository']),
     'name' => 'isearch::repoSearch',
     'type' => 'select',
-    'group' => 'isearch::common.settingGroups.search',
     'props' => [
       'label' => 'isearch::common.settings.search',
       'multiple' => true,
@@ -31,6 +30,34 @@ return [
         ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
         ['label' => 'Páginas', 'value' => "Modules\Page\Repositories\PageRepository"],
       ]
+    ]
+  ],
+  'listOptionsSearch' => [
+    'value' => null,
+    'name' => 'isearch::listOptionsSearch',
+    'type' => 'select',
+    'props' => [
+      'label' => 'isearch::common.settings.labelListOptionsSearch',
+      'useInput' => true,
+      'useChips' => true,
+      'multiple' => true,
+      'hideDropdownIcon' => true,
+      'hint' => 'isearch::common.settingHints.hintsOptionsSearch',
+      'newValueMode' => 'add-unique'
+    ]
+  ],
+  'listFeaturedOptionsSearch' => [
+    'value' => null,
+    'name' => 'isearch::listFeaturedOptionsSearch',
+    'type' => 'select',
+    'props' => [
+      'label' => 'isearch::common.settings.labelListFeaturedOptionsSearch',
+      'useInput' => true,
+      'useChips' => true,
+      'multiple' => true,
+      'hideDropdownIcon' => true,
+      'hint' => 'isearch::common.settingHints.hintsFeaturedOptionsSearch',
+      'newValueMode' => 'add-unique'
     ]
   ],
 ];
