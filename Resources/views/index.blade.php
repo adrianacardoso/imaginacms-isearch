@@ -18,7 +18,7 @@
         entityName="Search"
         :showTitle="false"
         :pagination="['show' => false]"
-        :params="['filter' => ['repositories' => json_decode(setting('isearch::repoSearch')), 'withoutInternal' => true]]"
+        :params="['filter' => ['repositories' => json_decode(setting('isearch::repoSearch')), 'withoutInternal' => true], 'take' => 0,'page' => 0]"
         :responsiveTopContent="['mobile'=>false,'desktop'=>false]"
       />
     </div>
