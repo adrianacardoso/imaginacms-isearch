@@ -9,7 +9,7 @@ use Modules\Isearch\Repositories\SearchRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Isearch\Transformers\SearchItemTransformer;
-
+use Illuminate\Support\Str;
 class EloquentSearchRepository extends EloquentBaseRepository implements SearchRepository
 {
 
@@ -38,7 +38,30 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
           \Log::info("Isearch::SearchRepository | getItemsBy error:".$e->getMessage());
         }
       }
+      $words = explode(' ', trim($filter->search));
+
+      foreach($results as &$result){
+        $result->coincidences=0;
+        foreach ($words as $index => $word) {
+          if(strlen($word)>=$minCharactersSearch){
+            $pos = strpos(Str::slug($result->title ?? $result->name ?? ""),Str::slug($word));
+            if($pos !== false){
+              $result->coincidences+=1;
+            }//if pos
+            $pos = strpos(Str::slug($result->description ?? $result->body ?? ""),Str::slug($word));
+            if($pos !== false){
+              $result->coincidences+=1;
+            }//if pos
+          }//if str len words
+        }//foreach words
+      }//foreach collection
+      
+      //Sort by coincidences
+      $results=$results->sortByDesc("coincidences");
+      
+  
       return $results;
-    }
+    }//searchItems
+    
   }
 }
