@@ -27,6 +27,8 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
     $minCharactersSearch = setting("isearch::minSearchChars");
     
     $params->filter->minCharactersSearch = setting("isearch::minSearchChars",null,3);
+    $params->page = 0;
+    $params->take = 0;
     if (isset($filter->repositories)) {
       !is_array($filter->repositories) ? $filter->repositories = [$filter->repositories] : false;
       foreach ($filter->repositories as $repository) {
