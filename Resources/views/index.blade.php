@@ -17,8 +17,7 @@
         :itemComponentAttributes="config('asgard.isearch.config.indexItemListAttributes')"
         entityName="Search"
         :showTitle="false"
-        :pagination="['show' => false]"
-        :params="['filter' => ['repositories' => json_decode(setting('isearch::repoSearch')), 'withoutInternal' => true], 'take' => 0,'page' => 0]"
+        :params="['filter' => ['repositories' => json_decode(setting('isearch::repoSearch')), 'withoutInternal' => true], 'take' => 12]"
         :responsiveTopContent="['mobile'=>false,'desktop'=>false,'order'=>false]"
       />
     </div>
