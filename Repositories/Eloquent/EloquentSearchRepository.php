@@ -47,7 +47,7 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
           \Log::info("Isearch::SearchRepository | getItemsBy error:".$e->getMessage());
         }
       }
-      $words = explode(' ', trim($filter->search));
+      $words = explode(' ', trim(isset($filter->search) ? $filter->search : ''));
       
 
       foreach($results as &$result){
