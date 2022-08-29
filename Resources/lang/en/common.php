@@ -34,4 +34,10 @@ return [
     'hintsOptionsSearch' => 'Enter search suggestions',
     'hintsFeaturedOptionsSearch' => 'Enter featured search suggestions',
   ],
+  'filters' => [
+    'searchRepositories' => [
+      'title' => 'Buscar en:',
+      'entity title' => 'sección'
+    ]
+  ]
 ];
