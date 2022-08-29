@@ -31,7 +31,7 @@ return [
     'labelListFeaturedOptionsSearch' => 'Sugerencias destacadas para busquedas (Solo Autocomplete Layout 2)',
   ],
   'settingHints' => [
-    'search' => "Ingresa un repositorio y presiona enter",
+    'search' => "Ingresa un repositorio y presiona enter (La opción por default sera la primera)",
     'hintsOptionsSearch' => 'Ingresa sugerencias de búsquedas',
     'hintsFeaturedOptionsSearch' => 'Ingresa sugerencias destacadas de búsquedas',
   ],
