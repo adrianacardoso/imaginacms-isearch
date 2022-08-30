@@ -55,7 +55,54 @@ return [
       'imageAspect'=>'4/3',
   ],
 
-  /*
+/*
+|--------------------------------------------------------------------------
+| Repositories Data
+|--------------------------------------------------------------------------
+*/
+"repositories" => [
+    ['label' => 'Productos', 'value' => "Modules\Icommerce\Repositories\ProductRepository"],
+    ['label' => 'Entradas', 'value' => "Modules\Iblog\Repositories\PostRepository"],
+    ['label' => 'Categorias Blog', 'value' => "Modules\Iblog\Repositories\CategoryRepository"],
+    ['label' => 'Anuncios', 'value' => "Modules\Iad\Repositories\AdRepository"],
+    ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
+    ['label' => 'Páginas', 'value' => "Modules\Page\Repositories\PageRepository"],
+    ['label' => 'Todos', 'value' => "all"],
+],
+
+/*
+|--------------------------------------------------------------------------
+| Filters from Isite -  Index General 
+|--------------------------------------------------------------------------
+*/
+"filters" => [
+
+  "searchRepositories" =>  [
+    'title' =>  trans('isearch::common.filters.searchRepositories.title'),
+    'entityTitle' => trans('isearch::common.filters.searchRepositories.entity title'),
+    'name' => 'searchRepositories',
+    'classes' => 'col-sm-12 col-lg-12 form-group-select',
+    'status' => true,
+    'isExpanded' => false,
+    'type' => 'select',
+    'repository' => 'Modules\Isearch\Repositories\SearchRepository',
+    'emitTo' => 'filtersGetData',//Parent Filter - Listener
+    'repoAction' => 'filter', // Query Filter
+    'repoAttribute' => 'repository', // Query Filter
+    'listener' => null,
+    'repoMethod' => 'getRepositoriesFromSetting', // Get information to select
+    'isCollapsable' => false,
+    'withTitle' => false,
+    'withSubtitle' => true,
+    'getDataAfterSelected' => true, //Solo en caso q el 'repoMethod' no sea el getItemsBy 
+    'defaultSelectedSetting' => 'isearch::repoSearch'// setting name to get the default selected (first request)
+  ],
+ 
+
+],
+
+
+/*
 |--------------------------------------------------------------------------
 | Pagination to the index page
 |--------------------------------------------------------------------------
