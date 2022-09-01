@@ -85,17 +85,18 @@ return [
     'status' => true,
     'isExpanded' => false,
     'type' => 'select',
-    'repository' => 'Modules\Isearch\Repositories\SearchRepository',
-    'emitTo' => 'filtersGetData',//Parent Filter - Listener
-    'repoAction' => 'filter', // Query Filter
-    'repoAttribute' => 'repository', // Query Filter
+    'repository' => 'Modules\Isearch\Repositories\SearchRepository',//Repo Get Data
+    'repoMethod' => 'getRepositoriesFromSetting', //Method in Repo to Gsssset Data
+    'emitTo' => 'itemsListGetData',// Listener (ItemList) - To emit
+    'repoAction' => 'filter', // Query Filter - To emit
+    'repoAttribute' => 'repository', // Query Filter - To emit
     'listener' => null,
-    'repoMethod' => 'getRepositoriesFromSetting', // Get information to select
     'isCollapsable' => false,
     'withTitle' => false,
     'withSubtitle' => true,
     'getDataAfterSelected' => true, //Solo en caso q el 'repoMethod' no sea el getItemsBy 
-    'defaultSelectedSetting' => 'isearch::repoSearch'// setting name to get the default selected (first request)
+    'defaultSelectedSetting' => 'isearch::repoSearch',// 'setting name' to get the default selected (first request),
+    'showFirstOptionSelect' => false, //No muestre la opcion "seleccione etc etc"
   ],
  
 
