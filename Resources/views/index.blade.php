@@ -8,7 +8,15 @@
     <div class="container">
       <h1 class="page-header col-12">{{trans('isearch::common.search')}} "{{$searchphrase}}"</h1>
       <br>
-      {{--      {{dd(json_decode(setting('isearch::repoSearch')))}}--}}
+      
+      <livewire:isite::filters
+        :filters="config('asgard.isearch.config.filters')"
+        :showResponsiveModal="false"
+        layout="filter-layout-2"
+      />
+    
+      <hr>
+
       <livewire:isite::items-list
         moduleName="Isearch"
         itemComponentName="isite::item-list"
@@ -17,9 +25,10 @@
         :itemComponentAttributes="config('asgard.isearch.config.indexItemListAttributes')"
         entityName="Search"
         :showTitle="false"
-        :params="['filter' => ['repositories' => json_decode(setting('isearch::repoSearch')), 'withoutInternal' => true], 'take' => 12]"
+        :params="['filter' => ['withoutInternal' => true], 'take' => 12]"
         :responsiveTopContent="['mobile'=>false,'desktop'=>false,'order'=>false]"
       />
+      
     </div>
     <br>
   </div>
