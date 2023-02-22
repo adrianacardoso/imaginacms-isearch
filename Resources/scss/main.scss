@@ -124,7 +124,7 @@
 #pageIsearch {
   .page-header {
     font-size: 2rem;
-    color: $primary;
+    color: var(--primary);
   }
 
   .card {
@@ -154,13 +154,13 @@
     }
     .item-view-more-button{
       a {
-        color: $primary;
+        color: var(--primary);
         font-size: 15px;
         font-weight: 400;
 
         &:after {
           margin-left: 8px;
-          color: $primary;
+          color: var(--primary);
           font: normal normal normal 14px/1 FontAwesome;
           content: "";
         }
