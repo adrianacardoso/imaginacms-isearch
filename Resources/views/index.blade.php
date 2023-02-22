@@ -6,7 +6,7 @@
 
   <div id="pageIsearch" class="page blog isearch pt-5">
     <div class="container">
-      <h1 class="page-header col-12">{{trans('isearch::common.search')}} "{{$searchphrase}}"</h1>
+      <h1 class="page-header text-primary col-12">{{trans('isearch::common.search')}} "{{$searchphrase}}"</h1>
       <br>
       
       <livewire:isite::filters
