@@ -67,6 +67,7 @@ return [
     ['label' => 'Anuncios', 'value' => "Modules\Iad\Repositories\AdRepository"],
     ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
     ['label' => 'Páginas', 'value' => "Modules\Page\Repositories\PageRepository"],
+    ['label' => 'Organizaciones', 'value' => "Modules\Isite\Repositories\OrganizationRepository"],
     ['label' => 'Todos', 'value' => "all"],
 ],
 
