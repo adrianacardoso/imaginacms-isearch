@@ -27,6 +27,8 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
   public function getItemsBy($params)
   {
    
+    //\Log::info("Isearch: EloquentSearchRepository|getItemsBy");
+
     $filter = $params->filter;
     $minCharactersSearch = setting("isearch::minSearchChars");
     
@@ -62,12 +64,13 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
         $filter->repository = (array)$filter->repository;
 
       //Implementation Example: Tusanagustin
-      if(in_array("all",$filter->repository) || count($filter->repository)>0){
+      if(in_array("all",$filter->repository) || count($filter->repository)>1){
 
         return $this->getDataToAll($params,$filter,$minCharactersSearch);
 
       }else{
 
+        //\Log::info("Isearch: EloquentSearchRepository|getItemsBy| One Repository");
         //Implementation - One repository
         try {
 
