@@ -27,6 +27,8 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
   public function getItemsBy($params)
   {
    
+    //\Log::info("Isearch: EloquentSearchRepository|getItemsBy");
+
     $filter = $params->filter;
     $minCharactersSearch = setting("isearch::minSearchChars");
     
@@ -37,29 +39,43 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
     if(!isset($filter->repository)){
       $settingRepos = setting("isearch::repoSearch");
       if(!is_null($settingRepos)){
-        $repositories = json_decode($settingRepos);
-        $filter->repository = $repositories[0]; // Take the first
+
+        //Old code
+        //$repositories = json_decode($settingRepos);
+        //$filter->repository = $repositories[0]; // Take the first
+
+        $filter->repository = json_decode($settingRepos);
+
       }
     }
 
     if(isset($filter->repository)){
 
+      //Old code
       //Sometimes, it came as an array, it is validated so that it always takes only 1
-      if(is_array($filter->repository))
+      /*
+        if(is_array($filter->repository))
         $filter->repository = $filter->repository[0];
+      */
+
+      //Convertir en array porq habia una opcion que el mismo usuario seleccionaba
+      //el repo donde queria buscar (Creo q estaba en el index del blog)
+      if(!is_array($filter->repository))
+        $filter->repository = (array)$filter->repository;
 
       //Implementation Example: Tusanagustin
-      if($filter->repository=="all"){
+      if(in_array("all",$filter->repository) || count($filter->repository)>1){
 
         return $this->getDataToAll($params,$filter,$minCharactersSearch);
 
       }else{
 
+        //\Log::info("Isearch: EloquentSearchRepository|getItemsBy| One Repository");
         //Implementation - One repository
         try {
 
           //Get items
-          $repository = app($filter->repository);
+          $repository = app($filter->repository[0]);
           $items = $repository->getItemsBy($params);
           
         } catch (\Exception $e) {
@@ -181,10 +197,11 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
       !is_array($filter->repositories) ? $filter->repositories = [$filter->repositories] : false;
       foreach ($filter->repositories as $repository) {
         try {
-
-          $repository = app($repository);
-          $items = $repository->getItemsBy($params);
-          $results = $results->concat($items);
+          if(interface_exists($repository)){
+            $repository = app($repository);
+            $items = $repository->getItemsBy($params);
+            $results = $results->concat($items);
+          }
         } catch (\Exception $e) {
           //dd($e);
           \Log::info("Isearch::SearchRepository | getItemsBy error:".$e->getMessage());
