@@ -33,4 +33,42 @@
     <br>
   </div>
 @stop
+@section('scripts')
+  @parent
+  <style>
+    #pageIsearch .page-header {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    #pageIsearch .card img {
+      height: 200px;
+    }
+    #pageIsearch .card .item-title a {
+      text-decoration: none;
+    }
+    #pageIsearch .card .item-title a h3 {
+      margin-top: 5px;
+      font-size: 21px;
+    }
+    #pageIsearch .card .item-summary a {
+      text-decoration: none;
+    }
+    #pageIsearch .card .item-summary a .summary {
+      line-height: 1.4;
+    }
+    #pageIsearch .card .item-view-more-button a {
+      color: var(--primary);
+      font-size: 15px;
+      font-weight: 400;
+    }
+    #pageIsearch .card .item-view-more-button a:after {
+      margin-left: 8px;
+      color: var(--primary);
+      font: normal normal normal 14px/1 FontAwesome;
+      content: "";
+    }
+
+  </style>
+@stop
+
 
