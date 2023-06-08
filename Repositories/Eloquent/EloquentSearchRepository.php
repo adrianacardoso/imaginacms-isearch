@@ -167,9 +167,11 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
   }
 
   /*
-  * get data if option is ALL 
+  * get data to all or multiple repositories
   */
   public function getDataToAll($params,$filter,$minCharactersSearch){
+
+    //\Log::info("Isearch: EloquentSearchRepository| Prepare to search in multiple repositories");
 
       $results = Collect();
 
@@ -188,16 +190,17 @@ class EloquentSearchRepository extends EloquentBaseRepository implements SearchR
         $filter->repositories = array_column($repositoriesData, 'value');
       }
 
-     
+      
       //Delete option "all" from array
       $pos = array_search("all", $filter->repositories);
-      unset($filter->repositories[$pos]); 
+      if($pos)
+        unset($filter->repositories[$pos]);
       
-
       !is_array($filter->repositories) ? $filter->repositories = [$filter->repositories] : false;
       foreach ($filter->repositories as $repository) {
         try {
           if(interface_exists($repository)){
+            //\Log::info("Isearch: EloquentSearchRepository|Search in: ".$repository);
             $repository = app($repository);
             $items = $repository->getItemsBy($params);
             $results = $results->concat($items);
