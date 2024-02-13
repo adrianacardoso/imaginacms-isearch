@@ -64,6 +64,7 @@ return [
     ['label' => 'Entradas', 'value' => "Modules\Iblog\Repositories\PostRepository"],
     ['label' => 'Productos', 'value' => "Modules\Icommerce\Repositories\ProductRepository"],
     ['label' => 'Categorias Blog', 'value' => "Modules\Iblog\Repositories\CategoryRepository"],
+    ['label' => 'Categorias Productos', 'value' => "Modules\Icommerce\Repositories\CategoryRepository"],
     ['label' => 'Anuncios', 'value' => "Modules\Iad\Repositories\AdRepository"],
     ['label' => 'Lugares', 'value' => "Modules\Iplaces\Repositories\PlaceRepository"],
     ['label' => 'Páginas', 'value' => "Modules\Page\Repositories\PageRepository"],
