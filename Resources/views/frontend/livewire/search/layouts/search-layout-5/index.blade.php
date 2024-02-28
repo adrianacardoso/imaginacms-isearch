@@ -1,6 +1,6 @@
 <div class="searchLayout5">
-  <a class="btn-search" data-toggle="modal" data-target="#modalSearch5">
-    <i class="fa fa-search"></i>
+  <a class="btn-search {{$classButton}}" data-toggle="modal" data-target="#modalSearch5">
+    <i class="{{ $icon }}"></i>
   </a>
   <div id="modalSearch5" class="modal fade p-0" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-lg">
@@ -57,7 +57,11 @@
     .searchLayout5 .btn:focus {
       box-shadow: none;
     }
-
+    @if(!empty($styleButton))
+    .searchLayout5 .btn-search {
+    {!!$styleButton!!}
+    }
+    @endif
   </style>
 @stop
 

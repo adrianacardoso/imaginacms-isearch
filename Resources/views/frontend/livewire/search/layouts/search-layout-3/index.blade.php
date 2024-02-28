@@ -1,6 +1,6 @@
 <div class="searchLayout3">
-  <a class="btn-search" data-toggle="modal" data-target="#modalSearch3">
-    <i class="fa fa-search"></i>
+  <a class="btn-search {{$classButton}}" data-toggle="modal" data-target="#modalSearch3">
+    <i class="{{ $icon }}"></i>
   </a>
   <div id="modalSearch3" class="modal fade p-0" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog">
@@ -31,7 +31,7 @@
       margin: 0;
     }
     .searchLayout3 .btn {
-      color: #444444;
+      color: #ffffff;
       font-size: 22px;
       padding: 0 15px;
       border-radius: 0 !important;
@@ -55,6 +55,10 @@
     .searchLayout3 .form-control::placeholder {
       color: #555555;
     }
-
+    @if(!empty($styleButton))
+    .searchLayout3 .btn-search {
+    {!!$styleButton!!}
+    }
+    @endif
   </style>
 @stop

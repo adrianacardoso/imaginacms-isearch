@@ -1,6 +1,6 @@
 <div class="searchLayout4">
-  <a class="btn-search" data-toggle="modal" data-target="#modalSearch4">
-    <i class="fa fa-search"></i>
+  <a class="btn-search {{$classButton}}" data-toggle="modal" data-target="#modalSearch4">
+    <i class="{{ $icon }}"></i>
   </a>
   <div id="modalSearch4" class="modal fade p-0" tabindex="-1" aria-hidden="true" wire:ignore.self>
     <div class="modal-dialog modal-dialog-centered">
@@ -32,8 +32,9 @@
 @section('scripts')
   @parent
   <style>
+
     .searchLayout4 .btn {
-      color: #444444;
+      color: #ffffff;
       font-size: 22px;
       padding: 0 15px 0 0;
       border-radius: 0 !important;
@@ -54,7 +55,11 @@
       outline: 0;
       box-shadow: none;
     }
-
+    @if(!empty($styleButton))
+    .searchLayout4 .btn-search {
+    {!!$styleButton!!}
+    }
+    @endif
   </style>
 @stop
 
