@@ -18,7 +18,7 @@
   @if($showModal)
     <a data-toggle="modal" data-target="#searchModal"
        class="btn btn-link text-secondary icon cursor-pointer d-md-none">
-      <i class="fa fa-search"></i>
+      <i class="{{ $icon }}"></i>
     </a>
     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel"
          aria-hidden="true" wire:ignore.self>
@@ -58,17 +58,17 @@
 @section('scripts')
   @parent
   <style>
-    #searchLayout1 .cover-img, #searchLayout2 .cover-img {
+    #searchLayout2 .cover-img {
       object-fit: cover;
       max-height: 70px;
     }
-    #searchLayout1 .search-logo, #searchLayout2 .search-logo {
+    #searchLayout2 .search-logo {
       max-height: 100px;
       min-height: 100px;
       width: auto !important;
     }
     @media (max-width: 991.98px) {
-      #searchLayout1 .search-logo, #searchLayout2 .search-logo {
+      #searchLayout2 .search-logo {
         min-height: 40px;
       }
     }

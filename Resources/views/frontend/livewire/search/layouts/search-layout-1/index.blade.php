@@ -1,8 +1,7 @@
 <div id="searchLayout1">
-{{--    {{dd($params,$showModal,$icon,$placeholder,$title)}}--}}
     <a data-toggle="modal" data-target="#searchModal"
-       class="btn btn-link text-secondary icon cursor-pointer">
-        <i class="fa fa-search"></i>
+       class="btn btn-link text-secondary icon cursor-pointer {{$classButton}}">
+        <i class="{{ $icon }}"></i>
     </a>
     <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog  modal-lg" role="document">
@@ -41,17 +40,22 @@
 @section('scripts')
     @parent
     <style>
-        #searchLayout1 .cover-img, #searchLayout2 .cover-img {
+        @if(!empty($styleButton))
+        #searchLayout1 .btn-link {
+        {!!$styleButton!!}
+        }
+        @endif
+        #searchLayout1 .cover-img {
             object-fit: cover;
             max-height: 70px;
         }
-        #searchLayout1 .search-logo, #searchLayout2 .search-logo {
+        #searchLayout1 .search-logo {
             max-height: 100px;
             min-height: 100px;
             width: auto !important;
         }
         @media (max-width: 991.98px) {
-            #searchLayout1 .search-logo, #searchLayout2 .search-logo {
+            #searchLayout1 .search-logo {
                 min-height: 40px;
             }
         }
