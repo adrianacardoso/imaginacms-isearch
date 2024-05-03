@@ -15,15 +15,13 @@ class CacheSearchDecorator extends BaseCacheDecorator implements SearchRepositor
         $this->posts = Post::query();
         $this->repository = $search;
     }
-
-    public function whereSearch($searchphrase)
+    
+    public function getItemsBy($params)
     {
-        return $this->posts->where('title','LIKE',"%{$searchphrase}%")
-            ->orWhere('description','LIKE',"%{$searchphrase}%")
-            ->orderBy('created_at', 'DESC')->paginate(12);
+      return $this->repository->getItemsBy($params);
     }
-
-    public function getRepositoriesFromSetting($params)
+  
+  public function getRepositoriesFromSetting($params)
     {
         return $this->remember(function () use ($params) {
             return $this->repository->getRepositoriesFromSetting($params);

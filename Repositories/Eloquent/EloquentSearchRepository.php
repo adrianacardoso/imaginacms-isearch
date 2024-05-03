@@ -17,13 +17,6 @@ use Illuminate\Container\Container;
 class EloquentSearchRepository extends EloquentBaseRepository implements SearchRepository
 {
 
-  public function whereSearch($searchphrase)
-  {
-    return $this->posts->where('title', 'LIKE', "%{$searchphrase}%")
-      ->orWhere('description', 'LIKE', "%{$searchphrase}%")
-      ->orderBy('created_at', 'DESC')->paginate(12);
-  }
-
   public function getItemsBy($params)
   {
    
