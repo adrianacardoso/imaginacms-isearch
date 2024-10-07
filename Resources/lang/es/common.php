@@ -29,11 +29,16 @@ return [
     'search' => 'Repositorios para buscar contenido',
     'labelListOptionsSearch' => 'Sugerencias para busquedas (Solo Autocomplete Layout 2)',
     'labelListFeaturedOptionsSearch' => 'Sugerencias destacadas para busquedas (Solo Autocomplete Layout 2)',
+    'viewIndexItemList' => 'Vista Index de Busqueda',
   ],
   'settingHints' => [
     'search' => "Ingresa un repositorio y presiona enter (La opción por default sera la primera)",
     'hintsOptionsSearch' => 'Ingresa sugerencias de búsquedas',
     'hintsFeaturedOptionsSearch' => 'Ingresa sugerencias destacadas de búsquedas',
+  ],
+  'settingsOptions' => [
+    'defaultView' => 'Vista Default Search',
+    'viewProducts' => 'Vista Tipo Productos'
   ],
   'filters' => [
     'searchRepositories' => [

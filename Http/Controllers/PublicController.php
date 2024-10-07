@@ -49,7 +49,16 @@ class PublicController extends BasePublicController
         $ttpl = 'isearch.index';
         if (view()->exists($ttpl)) $tpl = $ttpl;
 
-        return view($tpl, compact( 'searchphrase'));
+        //Get View Base
+        $viewItemListBase = setting('isearch::viewIndexItemList',null,'index-item-list-default');
+
+        //Extra validation
+        $repos = json_decode(setting('isearch::repoSearch'));
+        $onlyIcommerce = false;
+        if(!is_null($repos) && is_array($repos) && count($repos)==1 && $repos[0]=='Modules\Icommerce\Repositories\ProductRepository')
+            $onlyIcommerce = true;
+        
+        return view($tpl, compact( 'searchphrase','viewItemListBase','onlyIcommerce'));
 
 
     }

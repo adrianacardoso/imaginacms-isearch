@@ -53,4 +53,23 @@ return [
       'newValueMode' => 'add-unique'
     ]
   ],
+  'viewIndexItemList' => [
+    'value' => 'index-item-list-default',
+    'name' => 'isearch::viewIndexItemList',
+    "onlySuperAdmin" => true,
+    'type' => 'select',
+    'props' => [
+      'label' => 'isearch::common.settings.viewIndexItemList',
+      'useInput' => false,
+      'useChips' => false,
+      'multiple' => false,
+      'hideDropdownIcon' => true,
+      'newValueMode' => 'add-unique',
+      'options' => [
+        ['label' => 'isearch::common.settingsOptions.defaultView', 'value' => 'index-item-list-default'],
+        ['label' => 'isearch::common.settingsOptions.viewProducts', 'value' => 'index-item-list-icommerce'],
+      ]
+    ]
+  ]
+
 ];

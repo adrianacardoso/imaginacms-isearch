@@ -17,17 +17,34 @@
     
       <hr>
 
-      <livewire:isite::items-list
-        moduleName="Isearch"
-        itemComponentName="isite::item-list"
-        itemComponentNamespace="Modules\Isite\View\Components\ItemList"
-        :configLayoutIndex="config('asgard.isearch.config.layoutIndex')"
-        :itemComponentAttributes="config('asgard.isearch.config.indexItemListAttributes')"
-        entityName="Search"
-        :showTitle="false"
-        :params="['filter' => ['withoutInternal' => true], 'take' => 12]"
-        :responsiveTopContent="['mobile'=>false,'desktop'=>false,'order'=>false]"
-      />
+      
+      @if($viewItemListBase=='index-item-list-icommerce' && is_module_enabled('Icommerce') && $onlyIcommerce)
+        <livewire:isite::items-list
+          moduleName="Icommerce"
+          itemComponentName="icommerce::product-list-item"
+          itemComponentNamespace="Modules\Icommerce\View\Components\ProductListItem"
+          :configLayoutIndex="config('asgard.icommerce.config.layoutIndex')"
+          entityName="Product"
+          :showTitle="false"
+          :params="['take' => setting('icommerce::product-per-page',null,12)]"
+          :configOrderBy="config('asgard.icommerce.config.orderBy')"
+          :pagination="config('asgard.icommerce.config.pagination')"
+          :responsiveTopContent="['mobile'=>false,'desktop'=>false,'order'=>false]"
+        />
+      @else
+        <livewire:isite::items-list
+          moduleName="Isearch"
+          itemComponentName="isite::item-list"
+          itemComponentNamespace="Modules\Isite\View\Components\ItemList"
+          :configLayoutIndex="config('asgard.isearch.config.layoutIndex')"
+          :itemComponentAttributes="config('asgard.isearch.config.indexItemListAttributes')"
+          entityName="Search"
+          :showTitle="false"
+          :params="['filter' => ['withoutInternal' => true], 'take' => 12]"
+          :responsiveTopContent="['mobile'=>false,'desktop'=>false,'order'=>false]"
+        />
+      @endif
+
       
     </div>
     <br>
