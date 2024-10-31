@@ -29,6 +29,7 @@ class Search extends Component
   public $withLabelButton;
   public $classButton;
   public $styleButton;
+  public $applyTenantUrlToBtnSearch;
 
   protected $queryString = [
     'search' => ['except' => ''],
@@ -37,7 +38,7 @@ class Search extends Component
 
   public function mount($layout = 'search-layout-1', $showModal = false, $icon = 'fa fa-search', $placeholder = null,
                         $title = '', $params = [], $minSearchChars = null, $goToRouteAlias = null, $labelButton = null,
-                        $withLabelButton = false, $classButton = '', $styleButton = '' )
+                        $withLabelButton = false, $classButton = '', $styleButton = '', $applyTenantUrlToBtnSearch = false )
   {
     $this->defaultView = 'isearch::frontend.livewire.search.layouts.search-layout-1.index';
     $this->view = isset($layout) ? 'isearch::frontend.livewire.search.layouts.' . $layout . '.index' : $this->defaultView;
@@ -55,6 +56,8 @@ class Search extends Component
     $this->withLabelButton = $withLabelButton;
     $this->classButton = $classButton;
     $this->styleButton = $styleButton;
+    $this->applyTenantUrlToBtnSearch = $applyTenantUrlToBtnSearch;
+
   }
 
   public function render()

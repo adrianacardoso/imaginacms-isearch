@@ -12,6 +12,7 @@
         :goToRouteAlias="$goToRouteAlias"
         :withLabelButton="$withLabelButton"
         :labelButton="$labelButton"
+        :applyTenantUrlToBtnSearch="$applyTenantUrlToBtnSearch"
       />
     </div>
   </div>
